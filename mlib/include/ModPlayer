@@ -1,0 +1,53 @@
+#ifndef _ModPlayer_
+#define _ModPlayer_
+
+//////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+//
+//
+//
+//////////////////////////////////////////////////////////////////////////////
+
+#include "sound.h"
+#include "player.h"
+
+//
+//
+//
+// See ModPlayer.cpp for comment 
+//
+//
+
+
+class ModPlayer {
+	struct soundBufParams _sbuf;
+	struct module _mod;
+public:
+	ModPlayer( char* mod, int freq=12000, bool fastSwitch=true );
+	ModPlayer( char* mod, void (*cb)(int,int, void *), void *data=NULL,
+		int freq=12000, bool fastSwitch=true );
+	~ModPlayer();
+
+	void enable();
+	void disable();
+	int masterVolume( int vol );
+	int playFX( signed char* smp, int len, int ch, int vol, int freq );
+	int playNote( int ch, int vol, int inst, int period );
+	void stopFX( int ch );
+	void setCallback( void (*cb)(int,int, void *), void *data );
+};
+
+
+
+
+
+
+
+
+
+
+
+#endif
+

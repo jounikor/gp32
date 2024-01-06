@@ -1,0 +1,2 @@
+player.o: player.c ../include/player.h sound.h
+sound.o: sound.c ../include/gp32.h sound.h
